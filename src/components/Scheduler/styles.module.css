@@ -5,7 +5,11 @@
 .wrapper {
   display: flex;
   min-height: 100vh;
+}
+
+.content {
   max-width: 100%;
+  width: 400px;
 }
 
 .cardTitle {
@@ -31,8 +35,17 @@
   margin-top: 0;
 }
 
+.btn {
+  width: 100px;
+  max-width: 100%;
+  text-transform: none !important;
+}
+
 .bookingBtn {
-  text-transform: none;
+  text-transform: none !important;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-radius: 15px;
 }
 
 /*  
@@ -51,7 +64,7 @@
   height: 100%;
   width: 300px;
   display: flex;
-  padding-left: 20px;
+  padding-left: 10px;
 }
 
 .wrapper .carousel :global(.swiper-slide) {
@@ -70,6 +83,11 @@
 
 .carousel :global(.swiper-button-next) {
   right: 0;
+}
+
+.pickDayBtn {
+  padding-left: 0;
+  padding-right: 0;
 }
 /*  
   >>> PickDay Component: End
