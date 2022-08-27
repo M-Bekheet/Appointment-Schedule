@@ -5,19 +5,30 @@
 .wrapper {
   display: flex;
   min-height: 100vh;
+  max-width: 95%;
+  margin: 50px auto !important;
+}
+
+.holder {
+  max-width: 100%;
+  width: 360px;
 }
 
 .content {
-  max-width: 100%;
-  width: 400px;
+  border: 1px solid #e1e1e1;
+  border-radius: 10px;
+  padding: 0 16px;
+  margin-top: 32px;
+  margin-bottom: 20px;
 }
 
 .cardTitle {
-  padding-left: 0;
+  padding: 26px 18px 16px 0;
 }
 
-.wrapper .title,
-.wrapper .subTitle {
+.title,
+.subTitle,
+.feesNumber {
   font-weight: 800;
   font-size: 1.6rem;
   line-height: 20px;
@@ -35,17 +46,29 @@
   margin-top: 0;
 }
 
-.btn {
-  width: 100px;
-  max-width: 100%;
-  text-transform: none !important;
+.feesNumber {
+  font-size: 17px;
+  opacity: 0.5;
+  line-height: 1.6rem;
 }
 
-.bookingBtn {
-  text-transform: none !important;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  border-radius: 15px;
+.wrapper .btnDisabled {
+  box-shadow: none;
+  opacity: 0.19;
+}
+.wrapper .btnActive,
+.wrapper .btnActive:hover {
+  background-color: #4894fe;
+}
+
+.wrapper .bookingBtn {
+  text-transform: none;
+  border-radius: 14px;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 19px;
+  box-shadow: none;
+  min-height: 52px;
 }
 
 /*  
@@ -77,18 +100,42 @@
 
 .carousel :global(.swiper-button-next:after),
 .carousel :global(.swiper-button-prev:after) {
-  color: #333;
-  font-size: 20px;
+  color: #d8d8d8;
+  font-size: 30px;
 }
 
 .carousel :global(.swiper-button-next) {
-  right: 0;
+  right: -5px;
 }
 
-.pickDayBtn {
-  padding-left: 0;
-  padding-right: 0;
+.wrapper .pickDayBtn {
+  text-transform: none;
+  padding-left: 12px;
+  padding-right: 12px;
+  font-weight: 800;
+  border-radius: 9px;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.161);
+  font-size: 0.88rem;
+  min-width: auto;
+}
+.wrapper .btnActive {
+  background: #4894fe;
+  color: #fff;
 }
 /*  
   >>> PickDay Component: End
 */
+
+.wrapper .timeBtn {
+  width: 100px;
+  max-width: 100%;
+  text-transform: none;
+  border-radius: 10px;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.161);
+  border: none;
+  color: #000;
+}
+
+.wrapper .timeBtn.btnActive {
+  color: #fff;
+}

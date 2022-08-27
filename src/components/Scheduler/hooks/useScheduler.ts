@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import mockData from 'src/utils/schedules-mock.json';
 
 import { ISchedule } from 'src/types/schedule';

@@ -1,4 +1,6 @@
 import { Button, Grid } from '@mui/material';
+import clsx from 'clsx';
+import { useState } from 'react';
 import { ISchedule } from 'src/types/schedule';
 import formatDate from 'src/utils/formatDate';
 import { Navigation } from 'swiper';
@@ -20,6 +22,8 @@ type Props = {
 };
 
 const PickDay = ({ setDayAvailability, schedule }: Props) => {
+  const [activeBtn, setActiveBtn] = useState<number>();
+
   const handleDayClick = (date: string) => {
     setDayAvailability(date);
   };
@@ -28,8 +32,8 @@ const PickDay = ({ setDayAvailability, schedule }: Props) => {
       <Swiper
         navigation={true}
         modules={[Navigation]}
-        spaceBetween={35}
-        slidesPerView={4}
+        spaceBetween={10}
+        slidesPerView={5}
       >
         {schedule?.map((item, i) =>
           tomorrowInUnix <
@@ -42,8 +46,15 @@ const PickDay = ({ setDayAvailability, schedule }: Props) => {
               <Grid item pb={1} key={`pick-schedule-date`}>
                 <Button
                   variant="outlined"
-                  onClick={(e) => handleDayClick(item.availability.date)}
-                  className={styles.pickDayBtn}
+                  size="small"
+                  onClick={(e) => {
+                    setActiveBtn(i);
+                    handleDayClick(item.availability.date);
+                  }}
+                  className={clsx(
+                    styles.pickDayBtn,
+                    activeBtn === i ? styles.btnActive : ''
+                  )}
                 >
                   {item.availability.day.split('').slice(0, 3).join('')}
                   <br />

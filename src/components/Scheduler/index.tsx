@@ -35,27 +35,31 @@ const Scheduler = () => {
           <CircularProgress />
         </Box>
       ) : (
-        <Box className={styles.content}>
+        <Box className={styles.holder}>
           <Typography variant="h4" gutterBottom className={styles.title}>
             Schedule Appointment
           </Typography>
-          <Box boxShadow={2} px={2} mt={4} mb={2}>
+          <Box className={styles.content}>
             <CardHeader
               titleTypographyProps={{
                 className: clsx(styles.subTitle, styles.fees),
               }}
               title="Fees"
               className={styles.cardTitle}
-              action={<Typography variant="body2">25$</Typography>}
+              action={
+                <Typography variant="body1" className={styles.feesNumber}>
+                  85$
+                </Typography>
+              }
             />
-            <Divider />
-            <CardContent sx={{ p: 0 }}>
+            <Divider color="#E1E1E1" />
+            <CardContent>
               <Typography className={styles.subTitle}>Schedule</Typography>
               <PickDay
                 schedule={schedule}
                 setDayAvailability={setDayAvailability}
               />
-              {Object.keys(timesMap)?.length > 0 && (
+              {Object.keys(timesMap)?.length > 0 ? (
                 <>
                   <Typography className={styles.subTitle}>
                     Choose time
@@ -65,6 +69,17 @@ const Scheduler = () => {
                     handleAppointment={handleAppointment}
                   />
                 </>
+              ) : (
+                <Box>
+                  <Typography
+                    variant="body2"
+                    my={2}
+                    textAlign="center"
+                    color="grey.500"
+                  >
+                    Choose a day to show the available time
+                  </Typography>
+                </Box>
               )}
             </CardContent>
           </Box>
