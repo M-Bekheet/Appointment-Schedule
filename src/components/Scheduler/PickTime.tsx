@@ -17,7 +17,7 @@ const PickTime = ({ timesMap = {}, handleAppointment }: Props) => {
   return (
     <Grid container pt={0} rowSpacing={1} columnSpacing={1.6}>
       {Object.keys(timesMap).map((time: any, i) => (
-        <Grid item xs={4} mb={2} key={`time-to-pick-${i}`}>
+        <Grid item xs={6} md={4} mb={2} key={`time-to-pick-${i}`}>
           <Button
             variant="outlined"
             className={clsx(
@@ -25,6 +25,13 @@ const PickTime = ({ timesMap = {}, handleAppointment }: Props) => {
               timesMap[time] ? '' : styles.btnDisabled,
               activeBtn === i ? styles.btnActive : ''
             )}
+            sx={{
+              '&:hover': {
+                border: 'none',
+              },
+              whiteSpace: 'nowrap',
+              minHeight: '45px',
+            }}
             disabled={!timesMap[time]}
             onClick={(e) => {
               setActiveBtn(i);
