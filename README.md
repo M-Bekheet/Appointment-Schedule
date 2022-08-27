@@ -1,7 +1,7 @@
 # Cura | Appointment Scheduler
 
 <p align="center">
-  <a href="https://www.web-dev.works">
+  <a href="https://github.com/M-Bekheet/Appointment-Scheduler">
     <img alt="Cura Logo" src="https://cura.healthcare/Content/public/android-chrome-192x192.png" width="80" />
   </a>
 </p>
